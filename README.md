@@ -12,6 +12,13 @@ $ ls
 optee_qemu_armv8a  README.md
 $ cd cd optee_qemu_armv8a
 $ chmod 777 *
+```
+If want share the folders between your Host PC and QEMU Linux, run below command:
+```ruby
+$ sudo ./run_qemu_share_files.sh
+```
+Otherwise run the below command:
+```ruby
 $ sudo ./run_qemu.sh
 ```
 
@@ -89,6 +96,29 @@ D/TC:0   console_itr_cb:167 cpu 0: got 0x61
 ```
 ![interrupt_handle](https://user-images.githubusercontent.com/36186082/147333310-83d16d5d-2a22-426a-b103-2f88249a0988.png)
 
+# Share the files/folders between Host PC and QEMU 
+
+This step is usefull when you want to copy the TA.CA to QEMU Linux file system from your host PC.
+In this path "optee_qemu_armv8a/shared_folder" already folder is provided and in script "run_qemu_share_files.sh" its hard coded.
+
+Once Linux is booted in QEMU, mount the shared the folder using below command:
+
+```ruby
+$ mkdir shared && mount -t 9p -o trans=virtio host <mount point>
+```
+Example:
+
+```ruby
+$ mkdir /mnt/shared && mount -t 9p -o trans=virtio host /mnt/shared
+```
+
+Now you can check you are able to access files availables in your host pc or not.
+```ruby
+$ ls /mnt/shared
+sharedfile.sh
+$ cat /mnt/shared/sharedfile.sh
+This is shared path
+```
 
 # Run the Example Trusted applications
 
