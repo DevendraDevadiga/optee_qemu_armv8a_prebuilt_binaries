@@ -10,7 +10,7 @@ $ git clone https://github.com/DevendraDevadiga/optee_qemu_armv8a_prebuilt_binar
 $ cd optee_qemu_armv8a_prebuilt_binaries
 $ ls
 optee_qemu_armv8a  README.md
-$ cd cd optee_qemu_armv8a
+$ cd optee_qemu_armv8a
 $ chmod 777 *
 ```
 If want share the folders between your Host PC and QEMU Linux, run below command:
