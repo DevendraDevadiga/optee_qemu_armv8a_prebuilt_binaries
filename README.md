@@ -422,7 +422,7 @@ Dec 25 07:33:28 buildroot daemon.info tee-supplicant[145]: Hello, plugin! value 
 # 
 ```
 	
-# 2. OP-TEE Random UUID generation Test.
+# 6. OP-TEE Random UUID generation Test.
   
 Normal World console:
   
@@ -451,4 +451,123 @@ D/TC:? 0 tee_ta_close_session:531 Destroy session
 D/TC:? 0 destroy_context:308 Destroy TA ctx (0x56450f90)
 
 ```
+
+# 7. OP-TEE Secure Storage Test.
+  
+Normal World console:
+  
+```ruby
+# optee_example_secure_storage &
+# ls -alh /data/tee/
+Prepare session with the TA
+
+Test on object "object#1"
+- Create and load object in the TA secure storage
+- Read back the object
+Test on object "object#2"
+- Object not found in TA secure storage, create it.
+We're done, close and release TEE resources
+# 
+```
+Inside  folder "/data/tee/" it will create the dile for secure storarge and delete it.
 	
+Secure World Console:
+
+```ruby
+D/TC:? 0 tee_ta_init_pseudo_ta_session:299 Lookup pseudo TA b6c53aba-9669-4668-a7f2-205629d00f86
+D/TC:? 0 ldelf_load_ldelf:91 ldelf load address 0x80006000
+D/LD:  ldelf:134 Loading TS b6c53aba-9669-4668-a7f2-205629d00f86
+D/TC:? 0 ldelf_syscall_open_bin:142 Lookup user TA ELF b6c53aba-9669-4668-a7f2-205629d00f86 (Secure Storage TA)
+D/TC:? 0 ldelf_syscall_open_bin:146 res=0xffff0008
+D/TC:? 0 ldelf_syscall_open_bin:142 Lookup user TA ELF b6c53aba-9669-4668-a7f2-205629d00f86 (REE)
+D/TC:? 0 ldelf_syscall_open_bin:146 res=0
+D/LD:  ldelf:168 ELF (b6c53aba-9669-4668-a7f2-205629d00f86) at 0x8004a000
+D/TA:  random_number_generate:74 has been called
+I/TA: Generating random data over 16 bytes.
+D/TC:? 0 tee_ta_close_session:512 csess 0x56450ff0 id 1
+D/TC:? 0 tee_ta_close_session:531 Destroy session
+D/TC:? 0 destroy_context:308 Destroy TA ctx (0x56450f90)
+
+```
+
+
+# 7. OP-TEE xtest.
+For more information about xtest follow below link:
+https://optee.readthedocs.io/en/latest/building/gits/optee_test.html
+  
+Normal World console:
+  
+```ruby
+# xtest -h
+Usage: xtest <options> [[-x] <test-id>]...]
+
+options:
+	-d <TEE-identifer> TEE identifier. Use default TEE if not set
+	-l <level>         Test level [0-15].  Values higher than 0 enable
+	                   optional tests. Default: 0. All tests: 15.
+	-t <test_suite>    Available test suites: regression benchmark
+	                   To run several suites, use multiple names
+	                   separated by a '+')
+	                   Default value: 'regression'
+	-h                 Show usage
+	<test-id>          Add <test-id> to the list of tests to be run.
+	                   A substring match is performed. May be specified
+	                   several times. If no tests are given, all the
+	                   tests are added.
+	-x <test-id>       Exclude <test-id> from the list of tests to be
+	                   run. A substring match is performed. May be
+	                   specified several times.
+applets:
+	--sha-perf [opts]  SHA performance testing tool (-h for usage)
+	--aes-perf [opts]  AES performance testing tool (-h for usage)
+	--install-ta [directory or list of TAs]
+	                   Install TAs
+	--stats [opts]     Various statistics ('-h' for usage)
+
+Examples:
+	xtest -t regression 4001 4003
+	                   run regression tests 4001 and 4003
+	xtest -t regression -x 1027 -x 1028
+	                   run all regression tests but 1027 and 1028
+
+# 
+# xtest 
+Run test suite with level=0
+
+TEE test application started over default TEE instance
+######################################################
+#
+# regression
+#
+######################################################
+ 
+* regression_1001 Core self tests
+  regression_1001 OK
+ 
+* regression_1002 PTA parameters
+  regression_1002 OK
+ 
+* regression_1003 Core internal read/write mutex
+    Number of parallel threads: 6 (2 writers and 4 readers)
+    Max read concurrency: 2
+    Max read waiters: 1
+    Mean read concurrency: 1.2375
+    Mean read waiting: 1
+  regression_1003 OK
+ 
+* regression_1004 Test User Crypt TA
+o regression_1004.1 AES encrypt
+  regression_1004.1 OK
+o regression_1004.2 AES decrypt
+  regression_1004.2 OK
+o regression_1004.3 SHA-256 test, 3 bytes input
+  regression_1004.3 OK
+o regression_1004.4 AES-256 ECB encrypt (32B, fixed key)
+  regression_1004.4 OK
+o regression_1004.5 AES-256 ECB decrypt (32B, fixed key)
+  regression_1004.5 OK
+  regression_1004 OK
+.............................
+.............................
+		
+```
