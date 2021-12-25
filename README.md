@@ -319,7 +319,7 @@ D/TC:? 0 tee_ta_close_session:531 Destroy session
 D/TA:  TA_CloseSessionEntryPoint:404 Session 0x4003d4c0: release session
 D/TC:? 0 destroy_context:308 Destroy TA ctx (0xbded1c30)
 ```
-# 2. Generating HMAC based One Time Passwords securely.
+# 4. Generating HMAC based One Time Passwords securely.
   
 Normal World console:
   
@@ -365,3 +365,90 @@ D/TC:? 0 tee_ta_close_session:531 Destroy session
 D/TC:? 0 destroy_context:308 Destroy TA ctx (0xbded1c30)
 ```
  
+# 5. OP-TEE Syslog Plugin Test.
+  
+Normal World console:
+  
+```ruby
+# optee_example_plugins 
+Work logic: REE --> plugin TA --> syslog plugin in REE --> syslog
+See the log from TEE through 'journalctl'
+
+Attempt #1: TEEC_InvokeCommand() success; res=0 orig=0x4
+Attempt #2: TEEC_InvokeCommand() success; res=0 orig=0x4
+Attempt #3: TEEC_InvokeCommand() success; res=0 orig=0x4
+Attempt #4: TEEC_InvokeCommand() success; res=0 orig=0x4
+Attempt #5: TEEC_InvokeCommand() success; res=0 orig=0x4
+# 
+
+```
+Secure World Console:
+
+```ruby
+D/TC:? 0 tee_ta_init_pseudo_ta_session:299 Lookup pseudo TA 2a287631-de1b-4fdd-a55c-b9312e40769a
+D/TC:? 0 ldelf_load_ldelf:91 ldelf load address 0x80006000
+D/LD:  ldelf:134 Loading TS 2a287631-de1b-4fdd-a55c-b9312e40769a
+D/TC:? 0 ldelf_syscall_open_bin:142 Lookup user TA ELF 2a287631-de1b-4fdd-a55c-b9312e40769a (Secure Storage TA)
+D/TC:? 0 ldelf_syscall_open_bin:146 res=0xffff0008
+D/TC:? 0 ldelf_syscall_open_bin:142 Lookup user TA ELF 2a287631-de1b-4fdd-a55c-b9312e40769a (REE)
+D/TC:? 0 ldelf_syscall_open_bin:146 res=0
+D/LD:  ldelf:168 ELF (2a287631-de1b-4fdd-a55c-b9312e40769a) at 0x80072000
+I/TA: Push syslog plugin string "Hello, plugin! value = 0x0"
+D/TC:? 0 tee_ta_init_pseudo_ta_session:299 Lookup pseudo TA 3a2f8978-5dc0-11e8-9c2d-fa7ae01bbebc
+D/TC:? 0 tee_ta_init_pseudo_ta_session:312 Open system.pta
+D/TC:? 0 tee_ta_init_pseudo_ta_session:329 system.pta : 3a2f8978-5dc0-11e8-9c2d-fa7ae01bbebc
+I/TA: Push syslog plugin string "Hello, plugin! value = 0x1"
+I/TA: Push syslog plugin string "Hello, plugin! value = 0x2"
+I/TA: Push syslog plugin string "Hello, plugin! value = 0x3"
+I/TA: Push syslog plugin string "Hello, plugin! value = 0x4"
+D/TC:? 0 tee_ta_close_session:512 csess 0x564527f0 id 1
+D/TC:? 0 tee_ta_close_session:531 Destroy session
+D/TC:? 0 destroy_context:308 Destroy TA ctx (0x56452790)
+D/TC:? 0 tee_ta_close_session:512 csess 0x564511a0 id 1
+D/TC:? 0 tee_ta_close_session:531 Destroy session
+
+```
+This application which interacts with the 'syslog' plugin with the help of 'tee_invoke_supp_plugin()'.
+This TA increments a value and prints some strings to the syslog.
+If the example works successfully, we can find the following strings in the log file (for qemu it's '/var/log/messages' file):
+
+```ruby
+# cat /var/log/messages | grep tee-supplicant
+Dec 25 07:33:19 buildroot daemon.info tee-supplicant[145]: Hello, plugin! value = 0x0
+Dec 25 07:33:21 buildroot daemon.info tee-supplicant[145]: Hello, plugin! value = 0x1
+Dec 25 07:33:24 buildroot daemon.info tee-supplicant[145]: Hello, plugin! value = 0x2
+Dec 25 07:33:26 buildroot daemon.info tee-supplicant[145]: Hello, plugin! value = 0x3
+Dec 25 07:33:28 buildroot daemon.info tee-supplicant[145]: Hello, plugin! value = 0x4
+# 
+```
+	
+# 2. OP-TEE Random UUID generation Test.
+  
+Normal World console:
+  
+```ruby
+# optee_example_random 
+Invoking TA to generate random UUID... 
+TA generated UUID value = 0x41d08dc897916c4dc1eba356c288aaf
+# 
+
+```
+Secure World Console:
+
+```ruby
+D/TC:? 0 tee_ta_init_pseudo_ta_session:299 Lookup pseudo TA b6c53aba-9669-4668-a7f2-205629d00f86
+D/TC:? 0 ldelf_load_ldelf:91 ldelf load address 0x80006000
+D/LD:  ldelf:134 Loading TS b6c53aba-9669-4668-a7f2-205629d00f86
+D/TC:? 0 ldelf_syscall_open_bin:142 Lookup user TA ELF b6c53aba-9669-4668-a7f2-205629d00f86 (Secure Storage TA)
+D/TC:? 0 ldelf_syscall_open_bin:146 res=0xffff0008
+D/TC:? 0 ldelf_syscall_open_bin:142 Lookup user TA ELF b6c53aba-9669-4668-a7f2-205629d00f86 (REE)
+D/TC:? 0 ldelf_syscall_open_bin:146 res=0
+D/LD:  ldelf:168 ELF (b6c53aba-9669-4668-a7f2-205629d00f86) at 0x8004a000
+D/TA:  random_number_generate:74 has been called
+I/TA: Generating random data over 16 bytes.
+D/TC:? 0 tee_ta_close_session:512 csess 0x56450ff0 id 1
+D/TC:? 0 tee_ta_close_session:531 Destroy session
+D/TC:? 0 destroy_context:308 Destroy TA ctx (0x56450f90)
+
+```
+	
