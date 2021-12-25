@@ -673,3 +673,5 @@ TEE test application done!
 # 
 		
 ```
+The complete xtest log is available here:
+https://raw.githubusercontent.com/DevendraDevadiga/optee_qemu_armv8a_prebuilt_binaries/main/optee_qemu_armv8a/xtest-log.txt
