@@ -531,7 +531,7 @@ Examples:
 	                   run all regression tests but 1027 and 1028
 
 # 
-# xtest 
+# xtest 2>&1 | tee xtest-log.txt 
 Run test suite with level=0
 
 TEE test application started over default TEE instance
