@@ -569,5 +569,107 @@ o regression_1004.5 AES-256 ECB decrypt (32B, fixed key)
   regression_1004 OK
 .............................
 .............................
++-----------------------------------------------------
+Result of testsuite regression:
+regression_1001 OK
+regression_1002 OK
+regression_1003 OK
+regression_1004 OK
+regression_1005 OK
+regression_1006 OK
+regression_1007 OK
+regression_1008 OK
+regression_1009 OK
+regression_1010 OK
+regression_1011 OK
+regression_1012 OK
+regression_1013 OK
+regression_1015 OK
+regression_1016 OK
+regression_1017 OK
+regression_1018 OK
+regression_1019 OK
+regression_1020 OK
+regression_1021 OK
+regression_1022 OK
+regression_1023 OK
+regression_1025 OK
+regression_1026 OK
+regression_1027 OK
+regression_1028 OK
+regression_1029 OK
+regression_1030 OK
+regression_1031 OK
+regression_1032 OK
+regression_1033 OK
+regression_1034 OK
+regression_2001 OK
+regression_2002 OK
+regression_2003 OK
+regression_2004 OK
+regression_4001 OK
+regression_4002 OK
+regression_4003 OK
+regression_4004 OK
+regression_4005 OK
+regression_4006 OK
+regression_4007_dh OK
+regression_4007_dsa OK
+regression_4007_ecc OK
+regression_4007_rsa OK
+regression_4007_symmetric OK
+regression_4008 OK
+regression_4009 OK
+regression_4010 OK
+regression_4011 OK
+regression_4012 OK
+regression_4013 OK
+regression_4014 OK
+regression_4101 OK
+regression_4102 OK
+regression_4103 OK
+regression_4104 OK
+regression_4105 OK
+regression_4106 OK
+regression_4107 OK
+regression_4108 OK
+regression_4109 OK
+regression_4110 OK
+regression_4111 OK
+regression_4112 OK
+regression_4113 OK
+regression_4114 OK
+regression_5006 OK
+regression_6001 OK
+regression_6002 OK
+regression_6003 OK
+regression_6004 OK
+regression_6005 OK
+regression_6006 OK
+regression_6007 OK
+regression_6008 OK
+regression_6009 OK
+regression_6010 OK
+regression_6012 OK
+regression_6013 OK
+regression_6014 OK
+regression_6015 OK
+regression_6016 OK
+regression_6017 OK
+regression_6018 OK
+regression_6019 OK
+regression_6020 OK
+regression_8001 OK
+regression_8002 OK
+regression_8101 OK
+regression_8102 OK
+regression_8103 OK
++-----------------------------------------------------
+26181 subtests of which 0 failed
+93 test cases of which 0 failed
+0 test cases were skipped
+TEE test application done!
+# 
+# 
 		
 ```
