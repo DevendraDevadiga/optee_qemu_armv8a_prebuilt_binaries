@@ -1,0 +1,1630 @@
+Run test suite with level=0
+
+TEE test application started over default TEE instance
+######################################################
+#
+# regression
+#
+######################################################
+ 
+* regression_1001 Core self tests
+  regression_1001 OK
+ 
+* regression_1002 PTA parameters
+  regression_1002 OK
+ 
+* regression_1003 Core internal read/write mutex
+    Number of parallel threads: 6 (2 writers and 4 readers)
+    Max read concurrency: 2
+    Max read waiters: 1
+    Mean read concurrency: 1.25
+    Mean read waiting: 1
+  regression_1003 OK
+ 
+* regression_1004 Test User Crypt TA
+o regression_1004.1 AES encrypt
+  regression_1004.1 OK
+o regression_1004.2 AES decrypt
+  regression_1004.2 OK
+o regression_1004.3 SHA-256 test, 3 bytes input
+  regression_1004.3 OK
+o regression_1004.4 AES-256 ECB encrypt (32B, fixed key)
+  regression_1004.4 OK
+o regression_1004.5 AES-256 ECB decrypt (32B, fixed key)
+  regression_1004.5 OK
+  regression_1004 OK
+ 
+* regression_1005 Many sessions
+  regression_1005 OK
+ 
+* regression_1006 Test Basic OS features
+  regression_1006 OK
+ 
+* regression_1007 Test Panic
+  regression_1007 OK
+ 
+* regression_1008 TEE internal client API
+o regression_1008.1 Invoke command
+  regression_1008.1 OK
+o regression_1008.2 Invoke command with timeout
+  regression_1008.2 OK
+o regression_1008.3 Create session fail
+n = 0
+  regression_1008.3 OK
+o regression_1008.4 Load corrupt TA
+  regression_1008.4 OK
+  regression_1008 OK
+ 
+* regression_1009 TEE Wait
+o regression_1009.1 TEE Wait 0.1s
+  regression_1009.1 OK
+o regression_1009.2 TEE Wait 0.5s
+  regression_1009.2 OK
+o regression_1009.3 TEE Wait 2s cancel
+  regression_1009.3 OK
+o regression_1009.4 TEE Wait 2s
+  regression_1009.4 OK
+  regression_1009 OK
+ 
+* regression_1010 Invalid memory access
+o regression_1010.1 Invalid memory access 1
+  regression_1010.1 OK
+o regression_1010.2 Invalid memory access 2
+  regression_1010.2 OK
+o regression_1010.3 Invalid memory access 3
+  regression_1010.3 OK
+o regression_1010.4 Invalid memory access 4
+  regression_1010.4 OK
+o regression_1010.5 Invalid memory access 5
+  regression_1010.5 OK
+o regression_1010.6 Invalid memory access 6
+  regression_1010.6 OK
+o regression_1010.7 Invalid memory access 7
+  regression_1010.7 OK
+o regression_1010.8 Invalid memory access 1 with 1024 bytes memref
+  regression_1010.8 OK
+o regression_1010.9 Invalid memory access 2 with 1024 bytes memref
+  regression_1010.9 OK
+o regression_1010.10 Invalid memory access 3 with 1024 bytes memref
+  regression_1010.10 OK
+o regression_1010.11 Invalid memory access 4 with 1024 bytes memref
+  regression_1010.11 OK
+o regression_1010.12 Invalid memory access 5 with 1024 bytes memref
+  regression_1010.12 OK
+o regression_1010.13 Invalid memory access 1 with 65536 bytes memref
+  regression_1010.13 OK
+o regression_1010.14 Invalid memory access 2 with 65536 bytes memref
+  regression_1010.14 OK
+o regression_1010.15 Invalid memory access 3 with 65536 bytes memref
+  regression_1010.15 OK
+o regression_1010.16 Invalid memory access 4 with 65536 bytes memref
+  regression_1010.16 OK
+o regression_1010.17 Invalid memory access 5 with 65536 bytes memref
+  regression_1010.17 OK
+  regression_1010 OK
+ 
+* regression_1011 Test TA-to-TA features with User Crypt TA
+o regression_1011.1 TA-to-TA via non-secure shared memory
+o regression_1011.1.1 AES encrypt
+  regression_1011.1.1 OK
+o regression_1011.1.2 AES decrypt
+  regression_1011.1.2 OK
+o regression_1011.1.3 SHA-256 test, 3 bytes input
+  regression_1011.1.3 OK
+o regression_1011.1.4 AES-256 ECB encrypt (32B, fixed key)
+  regression_1011.1.4 OK
+o regression_1011.1.5 AES-256 ECB decrypt (32B, fixed key)
+  regression_1011.1.5 OK
+  regression_1011.1 OK
+o regression_1011.2 TA-to-TA via TA private memory
+o regression_1011.2.1 AES encrypt
+  regression_1011.2.1 OK
+o regression_1011.2.2 AES decrypt
+  regression_1011.2.2 OK
+o regression_1011.2.3 SHA-256 test, 3 bytes input
+  regression_1011.2.3 OK
+o regression_1011.2.4 AES-256 ECB encrypt (32B, fixed key)
+  regression_1011.2.4 OK
+o regression_1011.2.5 AES-256 ECB decrypt (32B, fixed key)
+  regression_1011.2.5 OK
+  regression_1011.2 OK
+  regression_1011 OK
+ 
+* regression_1012 Test Single Instance Multi Session features with SIMS TA
+o regression_1012.1 Single Instance Multi Session
+  regression_1012.1 OK
+  regression_1012 OK
+ 
+* regression_1013 Test concurrency with concurrent TA
+o regression_1013.1 Using small concurrency TA
+o regression_1013.1.1 Busy loop repeat 10000
+  regression_1013.1.1 OK
+o regression_1013.1.2 SHA-256 loop repeat 1000
+  regression_1013.1.2 OK
+o regression_1013.1.3 Busy loop repeat 10000
+  regression_1013.1.3 OK
+o regression_1013.1.4 SHA-256 loop repeat 1000
+  regression_1013.1.4 OK
+o regression_1013.1.5 Busy loop repeat 10000
+  regression_1013.1.5 OK
+o regression_1013.1.6 SHA-256 loop repeat 1000
+  regression_1013.1.6 OK
+o regression_1013.1.7 Busy loop repeat 10000
+  regression_1013.1.7 OK
+o regression_1013.1.8 SHA-256 loop repeat 1000
+  regression_1013.1.8 OK
+o regression_1013.1.9 Busy loop repeat 10000
+  regression_1013.1.9 OK
+o regression_1013.1.10 SHA-256 loop repeat 1000
+  regression_1013.1.10 OK
+o regression_1013.1.11 Busy loop repeat 10000
+  regression_1013.1.11 OK
+o regression_1013.1.12 SHA-256 loop repeat 1000
+  regression_1013.1.12 OK
+o regression_1013.1.13 Busy loop repeat 10000
+  regression_1013.1.13 OK
+o regression_1013.1.14 SHA-256 loop repeat 1000
+  regression_1013.1.14 OK
+o regression_1013.1.15 Busy loop repeat 10000
+  regression_1013.1.15 OK
+o regression_1013.1.16 SHA-256 loop repeat 1000
+  regression_1013.1.16 OK
+o regression_1013.1.17 Busy loop repeat 10000
+  regression_1013.1.17 OK
+o regression_1013.1.18 SHA-256 loop repeat 1000
+  regression_1013.1.18 OK
+o regression_1013.1.19 Busy loop repeat 10000
+  regression_1013.1.19 OK
+o regression_1013.1.20 SHA-256 loop repeat 1000
+  regression_1013.1.20 OK
+o regression_1013.1.21 Busy loop repeat 10000
+  regression_1013.1.21 OK
+o regression_1013.1.22 SHA-256 loop repeat 1000
+  regression_1013.1.22 OK
+o regression_1013.1.23 Busy loop repeat 10000
+  regression_1013.1.23 OK
+o regression_1013.1.24 SHA-256 loop repeat 1000
+  regression_1013.1.24 OK
+    Number of parallel threads: 3
+    Mean concurrency: 1.75
+  regression_1013.1 OK
+o regression_1013.2 Using large concurrency TA
+o regression_1013.2.1 Busy loop repeat 10000
+  regression_1013.2.1 OK
+o regression_1013.2.2 SHA-256 loop repeat 1000
+  regression_1013.2.2 OK
+o regression_1013.2.3 Busy loop repeat 10000
+  regression_1013.2.3 OK
+o regression_1013.2.4 SHA-256 loop repeat 1000
+  regression_1013.2.4 OK
+o regression_1013.2.5 Busy loop repeat 10000
+  regression_1013.2.5 OK
+o regression_1013.2.6 SHA-256 loop repeat 1000
+  regression_1013.2.6 OK
+o regression_1013.2.7 Busy loop repeat 10000
+  regression_1013.2.7 OK
+o regression_1013.2.8 SHA-256 loop repeat 1000
+  regression_1013.2.8 OK
+o regression_1013.2.9 Busy loop repeat 10000
+  regression_1013.2.9 OK
+o regression_1013.2.10 SHA-256 loop repeat 1000
+  regression_1013.2.10 OK
+o regression_1013.2.11 Busy loop repeat 10000
+  regression_1013.2.11 OK
+o regression_1013.2.12 SHA-256 loop repeat 1000
+  regression_1013.2.12 OK
+o regression_1013.2.13 Busy loop repeat 10000
+  regression_1013.2.13 OK
+o regression_1013.2.14 SHA-256 loop repeat 1000
+  regression_1013.2.14 OK
+o regression_1013.2.15 Busy loop repeat 10000
+  regression_1013.2.15 OK
+o regression_1013.2.16 SHA-256 loop repeat 1000
+  regression_1013.2.16 OK
+o regression_1013.2.17 Busy loop repeat 10000
+  regression_1013.2.17 OK
+o regression_1013.2.18 SHA-256 loop repeat 1000
+  regression_1013.2.18 OK
+o regression_1013.2.19 Busy loop repeat 10000
+  regression_1013.2.19 OK
+o regression_1013.2.20 SHA-256 loop repeat 1000
+  regression_1013.2.20 OK
+o regression_1013.2.21 Busy loop repeat 10000
+  regression_1013.2.21 OK
+o regression_1013.2.22 SHA-256 loop repeat 1000
+  regression_1013.2.22 OK
+o regression_1013.2.23 Busy loop repeat 10000
+  regression_1013.2.23 OK
+o regression_1013.2.24 SHA-256 loop repeat 1000
+  regression_1013.2.24 OK
+    Number of parallel threads: 3
+    Mean concurrency: 1.58333
+  regression_1013.2 OK
+  regression_1013 OK
+ 
+* regression_1015 FS hash-tree corner cases
+  regression_1015 OK
+ 
+* regression_1016 Test TA to TA transfers (in/out/inout memrefs on the stack)
+  regression_1016 OK
+ 
+* regression_1017 Test coalescing memrefs
+  regression_1017 OK
+ 
+* regression_1018 Test memref out of bounds
+o regression_1018.1 Out of bounds > 4kB on allocated shm
+  regression_1018.1 OK
+o regression_1018.2 Out of bounds by 1 byte on registered shm
+  regression_1018.2 OK
+o regression_1018.3 Out of bounds by 1 byte ref on allocated shm
+  regression_1018.3 OK
+  regression_1018 OK
+ 
+* regression_1019 Test dynamically linked TA
+  regression_1019 OK
+ 
+* regression_1020 Test lockdep algorithm
+ - 1020 -   skip test, feature not implemented
+  regression_1020 OK
+ 
+* regression_1021 Test panic context release
+o regression_1021.1 Multiple Instances Single Session
+  regression_1021.1 OK
+o regression_1021.2 Single Instance Multi Sessions
+  regression_1021.2 OK
+o regression_1021.3 Single Instance Multi Sessions Keep Alive
+  regression_1021.3 OK
+o regression_1021.4 Multi Sessions TA to TA
+  regression_1021.4 OK
+  regression_1021 OK
+ 
+* regression_1022 Test dlopen()/dlsym()/dlclose() API
+  regression_1022 OK
+ 
+* regression_1023 Test ELF initialization (.init_array)
+  regression_1023 OK
+ 
+* regression_1025 Test memref NULL and/or 0 bytes size
+o regression_1025.1 Invalid NULL buffer memref registration
+  regression_1025.1 OK
+o regression_1025.2 Input/Output MEMREF Buffer NULL - Size 0 bytes
+  regression_1025.2 OK
+o regression_1025.3 Input MEMREF Buffer NULL - Size non 0 bytes
+  regression_1025.3 OK
+o regression_1025.4 Input MEMREF Buffer NULL over PTA invocation
+  regression_1025.4 OK
+  regression_1025 OK
+ 
+* regression_1026 Session: public login
+  regression_1026 OK
+ 
+* regression_1027 Session: user login for current user
+  regression_1027 OK
+ 
+* regression_1028 Session: group login for current user's effective group
+  regression_1028 OK
+ 
+* regression_1029 Test __thread attribute
+o regression_1029.1 TLS variables (main program)
+  regression_1029.1 OK
+o regression_1029.2 TLS variables (shared library)
+  regression_1029.2 OK
+  regression_1029 OK
+ 
+* regression_1030 Test dl_iterate_phdr()
+o regression_1030.1 Before dlopen()
+  regression_1030.1 OK
+o regression_1030.2 After dlopen()
+  regression_1030.2 OK
+  regression_1030 OK
+ 
+* regression_1031 Test C++ features
+o regression_1031.1 Global object constructor (main program)
+  regression_1031.1 OK
+o regression_1031.2 Global object constructor (shared library)
+  regression_1031.2 OK
+o regression_1031.3 Global object constructor (dlopen()ed lib)
+  regression_1031.3 OK
+o regression_1031.4 Exceptions (simple)
+  regression_1031.4 OK
+o regression_1031.5 Exceptions (mixed C/C++ frames)
+  regression_1031.5 OK
+  regression_1031 OK
+ 
+* regression_1032 Register read-only shared memory
+  regression_1032 OK
+ 
+* regression_1033 Test the supplicant plugin framework
+o regression_1033.1 Pass values to/from a plugin
+  regression_1033.1 OK
+o regression_1033.2 Pass array to a plugin
+  regression_1033.2 OK
+o regression_1033.3 Get array from a plugin
+  regression_1033.3 OK
+o regression_1033.4 Not allow bad input to a plugin
+  regression_1033.4 OK
+o regression_1033.5 Call an unknown plugin
+  regression_1033.5 OK
+  regression_1033 OK
+ 
+* regression_1034 Test loading a large TA
+  regression_1034 OK
+ 
+* regression_2001 Trivial TCP iSocket API tests
+o regression_2001.1 Start server
+  regression_2001.1 OK
+o regression_2001.2 TCP Socket open
+  regression_2001.2 OK
+o regression_2001.3 TCP Socket send
+  regression_2001.3 OK
+o regression_2001.4 TCP Socket recv
+  regression_2001.4 OK
+o regression_2001.5 TCP Socket get error
+  regression_2001.5 OK
+o regression_2001.6 TCP Socket close
+  regression_2001.6 OK
+o regression_2001.7 TCP Socket ioctl
+  regression_2001.7 OK
+  regression_2001 OK
+ 
+* regression_2002 Concurrent stressing TCP iSocket API tests
+o regression_2002.1 Stressing with 3 threads
+  regression_2002.1 OK
+  regression_2002 OK
+ 
+* regression_2003 Timeout TCP iSocket API tests
+o regression_2003.1 Start server
+  regression_2003.1 OK
+o regression_2003.2 TCP Socket open
+  regression_2003.2 OK
+o regression_2003.3 TCP Socket send (10 ms timeout)
+  regression_2003.3 OK
+o regression_2003.4 TCP Socket recv (10 ms timeout)
+  regression_2003.4 OK
+o regression_2003.5 TCP Socket get error
+  regression_2003.5 OK
+  regression_2003 OK
+ 
+* regression_2004 UDP iSocket API tests
+o regression_2004.1 Start server
+  regression_2004.1 OK
+o regression_2004.2 UDP Socket open
+  regression_2004.2 OK
+o regression_2004.3 UDP Socket send
+  regression_2004.3 OK
+o regression_2004.4 UDP Socket recv
+  regression_2004.4 OK
+o regression_2004.5 UDP Socket get error
+  regression_2004.5 OK
+o regression_2004.6 UDP Socket close
+  regression_2004.6 OK
+o regression_2004.7 UDP Socket ioctl
+  regression_2004.7 OK
+o regression_2004.8 UDP Socket change port
+o regression_2004.8.1 UDP Socket send
+  regression_2004.8.1 OK
+o regression_2004.8.2 UDP Socket recv
+  regression_2004.8.2 OK
+  regression_2004.8 OK
+o regression_2004.9 UDP Socket change addr
+o regression_2004.9.1 UDP Socket send
+  regression_2004.9.1 OK
+o regression_2004.9.2 UDP Socket recv
+  regression_2004.9.2 OK
+  regression_2004.9 OK
+  regression_2004 OK
+ 
+* regression_4001 Test TEE Internal API hash operations
+o regression_4001.1 Hash case 0 algo 0x50000001
+  regression_4001.1 OK
+o regression_4001.2 Hash case 1 algo 0x50000002
+  regression_4001.2 OK
+o regression_4001.3 Hash case 2 algo 0x50000003
+  regression_4001.3 OK
+o regression_4001.4 Hash case 3 algo 0x50000004
+  regression_4001.4 OK
+o regression_4001.5 Hash case 4 algo 0x50000004
+  regression_4001.5 OK
+o regression_4001.6 Hash case 5 algo 0x50000005
+  regression_4001.6 OK
+o regression_4001.7 Hash case 6 algo 0x50000006
+  regression_4001.7 OK
+o regression_4001.8 Hash case 7 algo 0x50000007
+  regression_4001.8 OK
+o regression_4001.9 Hash case 8 algo 0x50000007
+  regression_4001.9 OK
+  regression_4001 OK
+ 
+* regression_4002 Test TEE Internal API MAC operations
+o regression_4002.1 MAC case 0 algo 0x30000001
+  regression_4002.1 OK
+o regression_4002.2 MAC case 1 algo 0x30000001
+  regression_4002.2 OK
+o regression_4002.3 MAC case 2 algo 0x30000002
+  regression_4002.3 OK
+o regression_4002.4 MAC case 3 algo 0x30000002
+  regression_4002.4 OK
+o regression_4002.5 MAC case 4 algo 0x30000003
+  regression_4002.5 OK
+o regression_4002.6 MAC case 5 algo 0x30000003
+  regression_4002.6 OK
+o regression_4002.7 MAC case 6 algo 0x30000004
+  regression_4002.7 OK
+o regression_4002.8 MAC case 7 algo 0x30000004
+  regression_4002.8 OK
+o regression_4002.9 MAC case 8 algo 0x30000004
+  regression_4002.9 OK
+o regression_4002.10 MAC case 9 algo 0x30000004
+  regression_4002.10 OK
+o regression_4002.11 MAC case 10 algo 0x30000005
+  regression_4002.11 OK
+o regression_4002.12 MAC case 11 algo 0x30000005
+  regression_4002.12 OK
+o regression_4002.13 MAC case 12 algo 0x30000006
+  regression_4002.13 OK
+o regression_4002.14 MAC case 13 algo 0x30000006
+  regression_4002.14 OK
+o regression_4002.15 MAC case 14 algo 0x30000110
+  regression_4002.15 OK
+o regression_4002.16 MAC case 15 algo 0x30000110
+  regression_4002.16 OK
+o regression_4002.17 MAC case 16 algo 0x30000111
+  regression_4002.17 OK
+o regression_4002.18 MAC case 17 algo 0x30000111
+  regression_4002.18 OK
+o regression_4002.19 MAC case 18 algo 0x30000113
+  regression_4002.19 OK
+o regression_4002.20 MAC case 19 algo 0x30000113
+  regression_4002.20 OK
+o regression_4002.21 MAC case 20 algo 0x30000510
+  regression_4002.21 OK
+o regression_4002.22 MAC case 21 algo 0x30000510
+  regression_4002.22 OK
+o regression_4002.23 MAC case 22 algo 0x30000511
+  regression_4002.23 OK
+o regression_4002.24 MAC case 23 algo 0x30000511
+  regression_4002.24 OK
+o regression_4002.25 MAC case 24 algo 0x30000513
+  regression_4002.25 OK
+o regression_4002.26 MAC case 25 algo 0x30000513
+  regression_4002.26 OK
+o regression_4002.27 MAC case 26 algo 0x30000510
+  regression_4002.27 OK
+o regression_4002.28 MAC case 27 algo 0x30000510
+  regression_4002.28 OK
+o regression_4002.29 MAC case 28 algo 0x30000511
+  regression_4002.29 OK
+o regression_4002.30 MAC case 29 algo 0x30000511
+  regression_4002.30 OK
+o regression_4002.31 MAC case 30 algo 0x30000513
+  regression_4002.31 OK
+o regression_4002.32 MAC case 31 algo 0x30000513
+  regression_4002.32 OK
+o regression_4002.33 MAC case 32 algo 0x30000513
+  regression_4002.33 OK
+o regression_4002.34 MAC case 33 algo 0x30000513
+  regression_4002.34 OK
+o regression_4002.35 MAC case 34 algo 0x30000610
+  regression_4002.35 OK
+o regression_4002.36 MAC case 35 algo 0x30000610
+  regression_4002.36 OK
+o regression_4002.37 MAC case 36 algo 0x30000610
+  regression_4002.37 OK
+o regression_4002.38 MAC case 37 algo 0x30000610
+  regression_4002.38 OK
+o regression_4002.39 MAC case 38 algo 0x30000610
+  regression_4002.39 OK
+o regression_4002.40 MAC case 39 algo 0x30000610
+  regression_4002.40 OK
+o regression_4002.41 MAC case 40 algo 0x30000610
+  regression_4002.41 OK
+o regression_4002.42 MAC case 41 algo 0x30000610
+  regression_4002.42 OK
+o regression_4002.43 MAC case 42 algo 0x30000610
+  regression_4002.43 OK
+o regression_4002.44 MAC case 43 algo 0x30000610
+  regression_4002.44 OK
+o regression_4002.45 MAC case 44 algo 0x30000610
+  regression_4002.45 OK
+o regression_4002.46 MAC case 45 algo 0x30000610
+  regression_4002.46 OK
+o regression_4002.47 MAC case 46 algo 0x30000610
+  regression_4002.47 OK
+o regression_4002.48 MAC case 47 algo 0x30000610
+  regression_4002.48 OK
+o regression_4002.49 MAC case 48 algo 0x30000610
+  regression_4002.49 OK
+o regression_4002.50 MAC case 49 algo 0x30000610
+  regression_4002.50 OK
+o regression_4002.51 MAC case 50 algo 0x30000610
+  regression_4002.51 OK
+o regression_4002.52 MAC case 51 algo 0x30000610
+  regression_4002.52 OK
+o regression_4002.53 MAC case 52 algo 0x30000610
+  regression_4002.53 OK
+o regression_4002.54 MAC case 53 algo 0x30000610
+  regression_4002.54 OK
+o regression_4002.55 MAC case 54 algo 0x30000610
+  regression_4002.55 OK
+o regression_4002.56 MAC case 55 algo 0x30000610
+  regression_4002.56 OK
+o regression_4002.57 MAC case 56 algo 0x30000610
+  regression_4002.57 OK
+o regression_4002.58 MAC case 57 algo 0xf0000613
+  regression_4002.58 OK
+o regression_4002.59 MAC case 58 algo 0xf0000613
+  regression_4002.59 OK
+o regression_4002.60 MAC case 59 algo 0xf0000613
+  regression_4002.60 OK
+o regression_4002.61 MAC case 60 algo 0xf0000613
+  regression_4002.61 OK
+o regression_4002.62 MAC case 61 algo 0xf0000613
+  regression_4002.62 OK
+o regression_4002.63 MAC case 62 algo 0xf0000613
+  regression_4002.63 OK
+o regression_4002.64 MAC case 63 algo 0xf0000613
+  regression_4002.64 OK
+o regression_4002.65 MAC case 64 algo 0xf0000613
+  regression_4002.65 OK
+o regression_4002.66 MAC case 65 algo 0xf0000613
+  regression_4002.66 OK
+o regression_4002.67 MAC case 66 algo 0xf0000613
+  regression_4002.67 OK
+o regression_4002.68 MAC case 67 algo 0xf0000613
+  regression_4002.68 OK
+o regression_4002.69 MAC case 68 algo 0xf0000613
+  regression_4002.69 OK
+o regression_4002.70 MAC case 69 algo 0xf0000613
+  regression_4002.70 OK
+o regression_4002.71 MAC case 70 algo 0xf0000613
+  regression_4002.71 OK
+o regression_4002.72 MAC case 71 algo 0x30000007
+  regression_4002.72 OK
+o regression_4002.73 MAC case 72 algo 0x30000007
+  regression_4002.73 OK
+o regression_4002.74 MAC case 73 algo 0x30000007
+  regression_4002.74 OK
+o regression_4002.75 MAC case 74 algo 0x30000007
+  regression_4002.75 OK
+  regression_4002 OK
+ 
+* regression_4003 Test TEE Internal API cipher operations
+o regression_4003.1 Cipher case 0 algo 0x10000010 line 2029
+  regression_4003.1 OK
+o regression_4003.2 Cipher case 1 algo 0x10000010 line 2029
+  regression_4003.2 OK
+o regression_4003.3 Cipher case 2 algo 0x10000110 line 2032
+  regression_4003.3 OK
+o regression_4003.4 Cipher case 3 algo 0x10000110 line 2032
+  regression_4003.4 OK
+o regression_4003.5 Cipher case 4 algo 0x10000210 line 2036
+  regression_4003.5 OK
+o regression_4003.6 Cipher case 5 algo 0x10000210 line 2036
+  regression_4003.6 OK
+o regression_4003.7 Cipher case 6 algo 0x10000210 line 2040
+  regression_4003.7 OK
+o regression_4003.8 Cipher case 7 algo 0x10000210 line 2040
+  regression_4003.8 OK
+o regression_4003.9 Cipher case 8 algo 0x10000210 line 2044
+  regression_4003.9 OK
+o regression_4003.10 Cipher case 9 algo 0x10000210 line 2044
+  regression_4003.10 OK
+o regression_4003.11 Cipher case 10 algo 0x10000210 line 2048
+  regression_4003.11 OK
+o regression_4003.12 Cipher case 11 algo 0x10000210 line 2048
+  regression_4003.12 OK
+o regression_4003.13 Cipher case 12 algo 0x10000210 line 2052
+  regression_4003.13 OK
+o regression_4003.14 Cipher case 13 algo 0x10000210 line 2052
+  regression_4003.14 OK
+o regression_4003.15 Cipher case 14 algo 0x10000110 line 2057
+  regression_4003.15 OK
+o regression_4003.16 Cipher case 15 algo 0x10000110 line 2057
+  regression_4003.16 OK
+o regression_4003.17 Cipher case 16 algo 0x10000110 line 2058
+  regression_4003.17 OK
+o regression_4003.18 Cipher case 17 algo 0x10000110 line 2058
+  regression_4003.18 OK
+o regression_4003.19 Cipher case 18 algo 0x10000310 line 2061
+  regression_4003.19 OK
+o regression_4003.20 Cipher case 19 algo 0x10000310 line 2061
+  regression_4003.20 OK
+o regression_4003.21 Cipher case 20 algo 0x10000310 line 2062
+  regression_4003.21 OK
+o regression_4003.22 Cipher case 21 algo 0x10000310 line 2062
+  regression_4003.22 OK
+o regression_4003.23 Cipher case 22 algo 0x10000310 line 2063
+  regression_4003.23 OK
+o regression_4003.24 Cipher case 23 algo 0x10000310 line 2063
+  regression_4003.24 OK
+o regression_4003.25 Cipher case 24 algo 0x10000310 line 2064
+  regression_4003.25 OK
+o regression_4003.26 Cipher case 25 algo 0x10000310 line 2064
+  regression_4003.26 OK
+o regression_4003.27 Cipher case 26 algo 0x10000310 line 2065
+  regression_4003.27 OK
+o regression_4003.28 Cipher case 27 algo 0x10000310 line 2065
+  regression_4003.28 OK
+o regression_4003.29 Cipher case 28 algo 0x10000310 line 2066
+  regression_4003.29 OK
+o regression_4003.30 Cipher case 29 algo 0x10000310 line 2066
+  regression_4003.30 OK
+o regression_4003.31 Cipher case 30 algo 0x10000310 line 2067
+  regression_4003.31 OK
+o regression_4003.32 Cipher case 31 algo 0x10000310 line 2067
+  regression_4003.32 OK
+o regression_4003.33 Cipher case 32 algo 0x10000310 line 2068
+  regression_4003.33 OK
+o regression_4003.34 Cipher case 33 algo 0x10000310 line 2068
+  regression_4003.34 OK
+o regression_4003.35 Cipher case 34 algo 0x10000011 line 2071
+  regression_4003.35 OK
+o regression_4003.36 Cipher case 35 algo 0x10000011 line 2071
+  regression_4003.36 OK
+o regression_4003.37 Cipher case 36 algo 0x10000011 line 2074
+  regression_4003.37 OK
+o regression_4003.38 Cipher case 37 algo 0x10000011 line 2074
+  regression_4003.38 OK
+o regression_4003.39 Cipher case 38 algo 0x10000111 line 2077
+  regression_4003.39 OK
+o regression_4003.40 Cipher case 39 algo 0x10000111 line 2077
+  regression_4003.40 OK
+o regression_4003.41 Cipher case 40 algo 0x10000013 line 2082
+  regression_4003.41 OK
+o regression_4003.42 Cipher case 41 algo 0x10000013 line 2082
+  regression_4003.42 OK
+o regression_4003.43 Cipher case 42 algo 0x10000013 line 2085
+  regression_4003.43 OK
+o regression_4003.44 Cipher case 43 algo 0x10000013 line 2085
+  regression_4003.44 OK
+o regression_4003.45 Cipher case 44 algo 0x10000113 line 2088
+  regression_4003.45 OK
+o regression_4003.46 Cipher case 45 algo 0x10000113 line 2088
+  regression_4003.46 OK
+o regression_4003.47 Cipher case 46 algo 0x10000013 line 2094
+  regression_4003.47 OK
+o regression_4003.48 Cipher case 47 algo 0x10000013 line 2094
+  regression_4003.48 OK
+o regression_4003.49 Cipher case 48 algo 0x10000113 line 2097
+  regression_4003.49 OK
+o regression_4003.50 Cipher case 49 algo 0x10000113 line 2097
+  regression_4003.50 OK
+o regression_4003.51 Cipher case 50 algo 0x10000410 line 2103
+  regression_4003.51 OK
+o regression_4003.52 Cipher case 51 algo 0x10000410 line 2103
+  regression_4003.52 OK
+o regression_4003.53 Cipher case 52 algo 0x10000410 line 2104
+  regression_4003.53 OK
+o regression_4003.54 Cipher case 53 algo 0x10000410 line 2104
+  regression_4003.54 OK
+o regression_4003.55 Cipher case 54 algo 0x10000410 line 2105
+  regression_4003.55 OK
+o regression_4003.56 Cipher case 55 algo 0x10000410 line 2105
+  regression_4003.56 OK
+o regression_4003.57 Cipher case 56 algo 0x10000410 line 2106
+  regression_4003.57 OK
+o regression_4003.58 Cipher case 57 algo 0x10000410 line 2106
+  regression_4003.58 OK
+o regression_4003.59 Cipher case 58 algo 0x10000410 line 2107
+  regression_4003.59 OK
+o regression_4003.60 Cipher case 59 algo 0x10000410 line 2107
+  regression_4003.60 OK
+o regression_4003.61 Cipher case 60 algo 0x10000410 line 2108
+  regression_4003.61 OK
+o regression_4003.62 Cipher case 61 algo 0x10000410 line 2108
+  regression_4003.62 OK
+o regression_4003.63 Cipher case 62 algo 0x10000410 line 2109
+  regression_4003.63 OK
+o regression_4003.64 Cipher case 63 algo 0x10000410 line 2109
+  regression_4003.64 OK
+o regression_4003.65 Cipher case 64 algo 0x10000410 line 2110
+  regression_4003.65 OK
+o regression_4003.66 Cipher case 65 algo 0x10000410 line 2110
+  regression_4003.66 OK
+o regression_4003.67 Cipher case 66 algo 0x10000410 line 2111
+  regression_4003.67 OK
+o regression_4003.68 Cipher case 67 algo 0x10000410 line 2111
+  regression_4003.68 OK
+o regression_4003.69 Cipher case 68 algo 0x10000410 line 2112
+  regression_4003.69 OK
+o regression_4003.70 Cipher case 69 algo 0x10000410 line 2112
+  regression_4003.70 OK
+o regression_4003.71 Cipher case 70 algo 0x10000410 line 2113
+  regression_4003.71 OK
+o regression_4003.72 Cipher case 71 algo 0x10000410 line 2113
+  regression_4003.72 OK
+o regression_4003.73 Cipher case 72 algo 0x10000410 line 2114
+  regression_4003.73 OK
+o regression_4003.74 Cipher case 73 algo 0x10000410 line 2114
+  regression_4003.74 OK
+o regression_4003.75 Cipher case 74 algo 0x10000410 line 2115
+  regression_4003.75 OK
+o regression_4003.76 Cipher case 75 algo 0x10000410 line 2115
+  regression_4003.76 OK
+o regression_4003.77 Cipher case 76 algo 0x10000410 line 2116
+  regression_4003.77 OK
+o regression_4003.78 Cipher case 77 algo 0x10000410 line 2116
+  regression_4003.78 OK
+o regression_4003.79 Cipher case 78 algo 0x10000410 line 2117
+  regression_4003.79 OK
+o regression_4003.80 Cipher case 79 algo 0x10000410 line 2117
+  regression_4003.80 OK
+o regression_4003.81 Cipher case 80 algo 0x10000410 line 2118
+  regression_4003.81 OK
+o regression_4003.82 Cipher case 81 algo 0x10000410 line 2118
+  regression_4003.82 OK
+o regression_4003.83 Cipher case 82 algo 0x10000410 line 2119
+  regression_4003.83 OK
+o regression_4003.84 Cipher case 83 algo 0x10000410 line 2119
+  regression_4003.84 OK
+o regression_4003.85 Cipher case 84 algo 0x10000410 line 2120
+  regression_4003.85 OK
+o regression_4003.86 Cipher case 85 algo 0x10000410 line 2120
+  regression_4003.86 OK
+o regression_4003.87 Cipher case 86 algo 0x10000410 line 2121
+  regression_4003.87 OK
+o regression_4003.88 Cipher case 87 algo 0x10000410 line 2121
+  regression_4003.88 OK
+o regression_4003.89 Cipher case 88 algo 0x10000014 line 2124
+  regression_4003.89 OK
+o regression_4003.90 Cipher case 89 algo 0x10000014 line 2124
+  regression_4003.90 OK
+o regression_4003.91 Cipher case 90 algo 0x10000114 line 2127
+  regression_4003.91 OK
+o regression_4003.92 Cipher case 91 algo 0x10000114 line 2127
+  regression_4003.92 OK
+o regression_4003.93 Cipher case 92 algo 0x10000114 line 2131
+  regression_4003.93 OK
+o regression_4003.94 Cipher case 93 algo 0x10000114 line 2131
+  regression_4003.94 OK
+o regression_4003.95 Cipher case 94 algo 0x10000214 line 2135
+  regression_4003.95 OK
+o regression_4003.96 Cipher case 95 algo 0x10000214 line 2135
+  regression_4003.96 OK
+o regression_4003.97 Cipher case 96 algo 0x10000214 line 2139
+  regression_4003.97 OK
+o regression_4003.98 Cipher case 97 algo 0x10000214 line 2139
+  regression_4003.98 OK
+  regression_4003 OK
+ 
+* regression_4004 Test TEE Internal API get random
+o regression_4004.1 TEE get random
+  regression_4004.1 OK
+  regression_4004 OK
+ 
+* regression_4005 Test TEE Internal API Authenticated Encryption operations
+o regression_4005.1 AE case 0 algo 0x40000710 line 2426
+  regression_4005.1 OK
+o regression_4005.2 AE case 1 algo 0x40000710 line 2426
+  regression_4005.2 OK
+o regression_4005.3 AE case 2 algo 0x40000710 line 2427
+  regression_4005.3 OK
+o regression_4005.4 AE case 3 algo 0x40000710 line 2427
+  regression_4005.4 OK
+o regression_4005.5 AE case 4 algo 0x40000710 line 2428
+  regression_4005.5 OK
+o regression_4005.6 AE case 5 algo 0x40000710 line 2428
+  regression_4005.6 OK
+o regression_4005.7 AE case 6 algo 0x40000810 line 2430
+  regression_4005.7 OK
+o regression_4005.8 AE case 7 algo 0x40000810 line 2430
+  regression_4005.8 OK
+o regression_4005.9 AE case 8 algo 0x40000810 line 2431
+  regression_4005.9 OK
+o regression_4005.10 AE case 9 algo 0x40000810 line 2431
+  regression_4005.10 OK
+o regression_4005.11 AE case 10 algo 0x40000810 line 2432
+  regression_4005.11 OK
+o regression_4005.12 AE case 11 algo 0x40000810 line 2432
+  regression_4005.12 OK
+o regression_4005.13 AE case 12 algo 0x40000810 line 2433
+  regression_4005.13 OK
+o regression_4005.14 AE case 13 algo 0x40000810 line 2433
+  regression_4005.14 OK
+o regression_4005.15 AE case 14 algo 0x40000810 line 2434
+  regression_4005.15 OK
+o regression_4005.16 AE case 15 algo 0x40000810 line 2434
+  regression_4005.16 OK
+o regression_4005.17 AE case 16 algo 0x40000810 line 2435
+  regression_4005.17 OK
+o regression_4005.18 AE case 17 algo 0x40000810 line 2435
+  regression_4005.18 OK
+o regression_4005.19 AE case 18 algo 0x40000810 line 2436
+  regression_4005.19 OK
+o regression_4005.20 AE case 19 algo 0x40000810 line 2436
+  regression_4005.20 OK
+o regression_4005.21 AE case 20 algo 0x40000810 line 2437
+  regression_4005.21 OK
+o regression_4005.22 AE case 21 algo 0x40000810 line 2437
+  regression_4005.22 OK
+o regression_4005.23 AE case 22 algo 0x40000810 line 2438
+  regression_4005.23 OK
+o regression_4005.24 AE case 23 algo 0x40000810 line 2438
+  regression_4005.24 OK
+o regression_4005.25 AE case 24 algo 0x40000810 line 2439
+  regression_4005.25 OK
+o regression_4005.26 AE case 25 algo 0x40000810 line 2439
+  regression_4005.26 OK
+o regression_4005.27 AE case 26 algo 0x40000810 line 2440
+  regression_4005.27 OK
+o regression_4005.28 AE case 27 algo 0x40000810 line 2440
+  regression_4005.28 OK
+o regression_4005.29 AE case 28 algo 0x40000810 line 2441
+  regression_4005.29 OK
+o regression_4005.30 AE case 29 algo 0x40000810 line 2441
+  regression_4005.30 OK
+o regression_4005.31 AE case 30 algo 0x40000810 line 2442
+  regression_4005.31 OK
+o regression_4005.32 AE case 31 algo 0x40000810 line 2442
+  regression_4005.32 OK
+o regression_4005.33 AE case 32 algo 0x40000810 line 2443
+  regression_4005.33 OK
+o regression_4005.34 AE case 33 algo 0x40000810 line 2443
+  regression_4005.34 OK
+o regression_4005.35 AE case 34 algo 0x40000810 line 2444
+  regression_4005.35 OK
+o regression_4005.36 AE case 35 algo 0x40000810 line 2444
+  regression_4005.36 OK
+o regression_4005.37 AE case 36 algo 0x40000810 line 2445
+  regression_4005.37 OK
+o regression_4005.38 AE case 37 algo 0x40000810 line 2445
+  regression_4005.38 OK
+o regression_4005.39 AE case 38 algo 0x40000810 line 2446
+  regression_4005.39 OK
+o regression_4005.40 AE case 39 algo 0x40000810 line 2446
+  regression_4005.40 OK
+o regression_4005.41 AE case 40 algo 0x40000810 line 2447
+  regression_4005.41 OK
+o regression_4005.42 AE case 41 algo 0x40000810 line 2447
+  regression_4005.42 OK
+o regression_4005.43 AE case 42 algo 0x40000810 line 2448
+  regression_4005.43 OK
+o regression_4005.44 AE case 43 algo 0x40000810 line 2448
+  regression_4005.44 OK
+  regression_4005 OK
+ 
+* regression_4006 Test TEE Internal API Asymmetric Cipher operations
+o regression_4006.1 Asym Crypto case 0 algo 0x60000030 line 2784
+  regression_4006.1 OK
+o regression_4006.2 Asym Crypto case 1 algo 0x60000030 line 2786
+  regression_4006.2 OK
+o regression_4006.3 Asym Crypto case 2 algo 0x60000030 line 2788
+  regression_4006.3 OK
+o regression_4006.4 Asym Crypto case 3 algo 0x60000030 line 2790
+  regression_4006.4 OK
+o regression_4006.5 Asym Crypto case 4 algo 0x60000030 line 2792
+  regression_4006.5 OK
+o regression_4006.6 Asym Crypto case 5 algo 0x60000030 line 2794
+  regression_4006.6 OK
+o regression_4006.7 Asym Crypto case 6 algo 0x60000030 line 2796
+  regression_4006.7 OK
+o regression_4006.8 Asym Crypto case 7 algo 0x60000030 line 2798
+  regression_4006.8 OK
+o regression_4006.9 Asym Crypto case 8 algo 0x70002830 line 2800
+  regression_4006.9 OK
+o regression_4006.10 Asym Crypto case 9 algo 0x70002830 line 2802
+  regression_4006.10 OK
+o regression_4006.11 Asym Crypto case 20 algo 0x70003830 line 2825
+  regression_4006.11 OK
+o regression_4006.12 Asym Crypto case 21 algo 0x70003830 line 2827
+  regression_4006.12 OK
+o regression_4006.13 Asym Crypto case 22 algo 0xf0000830 line 2831
+  regression_4006.13 OK
+o regression_4006.14 Asym Crypto case 23 algo 0xf0000830 line 2833
+  regression_4006.14 OK
+o regression_4006.15 Asym Crypto case 24 algo 0x70004830 line 2837
+  regression_4006.15 OK
+o regression_4006.16 Asym Crypto case 25 algo 0x70004830 line 2839
+  regression_4006.16 OK
+o regression_4006.17 Asym Crypto case 26 algo 0x70005830 line 2842
+  regression_4006.17 OK
+o regression_4006.18 Asym Crypto case 27 algo 0x70005830 line 2844
+  regression_4006.18 OK
+o regression_4006.19 Asym Crypto case 28 algo 0x70006830 line 2847
+  regression_4006.19 OK
+o regression_4006.20 Asym Crypto case 29 algo 0x70006830 line 2849
+  regression_4006.20 OK
+o regression_4006.21 Asym Crypto case 34 algo 0x70414930 line 2865
+  regression_4006.21 OK
+o regression_4006.22 Asym Crypto case 35 algo 0x70414930 line 2868
+  regression_4006.22 OK
+o regression_4006.23 Asym Crypto case 40 algo 0x60000130 line 2886
+  regression_4006.23 OK
+o regression_4006.24 Asym Crypto case 41 algo 0x60000130 line 2888
+  regression_4006.24 OK
+o regression_4006.25 Asym Crypto case 46 algo 0x60210230 line 2899
+  regression_4006.25 OK
+o regression_4006.26 Asym Crypto case 47 algo 0x60210230 line 2902
+  regression_4006.26 OK
+o regression_4006.27 Asym Crypto case 52 algo 0x60000030 line 2919
+  regression_4006.27 OK
+o regression_4006.28 Asym Crypto case 53 algo 0x60000030 line 2921
+  regression_4006.28 OK
+o regression_4006.29 Asym Crypto case 56 algo 0x70002830 line 2927
+  regression_4006.29 OK
+o regression_4006.30 Asym Crypto case 57 algo 0x70002830 line 2929
+  regression_4006.30 OK
+o regression_4006.31 Asym Crypto case 68 algo 0x70004830 line 2951
+  regression_4006.31 OK
+o regression_4006.32 Asym Crypto case 69 algo 0x70004830 line 2953
+  regression_4006.32 OK
+o regression_4006.33 Asym Crypto case 78 algo 0x70414930 line 2975
+  regression_4006.33 OK
+o regression_4006.34 Asym Crypto case 79 algo 0x70414930 line 2978
+  regression_4006.34 OK
+o regression_4006.35 Asym Crypto case 84 algo 0x60000130 line 2994
+  regression_4006.35 OK
+o regression_4006.36 Asym Crypto case 85 algo 0x60000130 line 2996
+  regression_4006.36 OK
+o regression_4006.37 Asym Crypto case 90 algo 0x60210230 line 3007
+  regression_4006.37 OK
+o regression_4006.38 Asym Crypto case 91 algo 0x60210230 line 3010
+  regression_4006.38 OK
+o regression_4006.39 Asym Crypto case 156 algo 0x70004131 line 3095
+  regression_4006.39 OK
+o regression_4006.40 Asym Crypto case 157 algo 0x70004131 line 3096
+  regression_4006.40 OK
+o regression_4006.41 Asym Crypto case 276 algo 0x70001041 line 3230
+  regression_4006.41 OK
+o regression_4006.42 Asym Crypto case 277 algo 0x70001041 line 3232
+  regression_4006.42 OK
+o regression_4006.43 Asym Crypto case 426 algo 0x80000045 line 3545
+  regression_4006.43 OK
+o regression_4006.44 Asym Crypto case 427 algo 0x80000045 line 3547
+  regression_4006.44 OK
+o regression_4006.45 Asym Crypto case 428 algo 0x80000045 line 3549
+  regression_4006.45 OK
+o regression_4006.46 Asym Crypto case 429 algo 0x70006045 line 3552
+  regression_4006.46 OK
+o regression_4006.47 Asym Crypto case 430 algo 0x70006045 line 3554
+  regression_4006.47 OK
+  regression_4006 OK
+ 
+* regression_4007_dh Test TEE Internal API Generate DH key
+o regression_4007_dh.1 Generate DH key 256 bits - Private bits = 0
+  regression_4007_dh.1 OK
+o regression_4007_dh.2 Generate DH key 320 bits - Private bits = 256
+  regression_4007_dh.2 OK
+  regression_4007_dh OK
+ 
+* regression_4007_dsa Test TEE Internal API Generate DSA key
+o regression_4007_dsa.1 Generate DSA key 1024 bits
+  regression_4007_dsa.1 OK
+o regression_4007_dsa.2 Generate DSA key 512 bits
+  regression_4007_dsa.2 OK
+o regression_4007_dsa.3 Generate DSA key 576 bits
+  regression_4007_dsa.3 OK
+o regression_4007_dsa.4 Generate DSA key 640 bits
+  regression_4007_dsa.4 OK
+o regression_4007_dsa.5 Generate DSA key 704 bits
+  regression_4007_dsa.5 OK
+o regression_4007_dsa.6 Generate DSA key 768 bits
+  regression_4007_dsa.6 OK
+o regression_4007_dsa.7 Generate DSA key 832 bits
+  regression_4007_dsa.7 OK
+o regression_4007_dsa.8 Generate DSA key 896 bits
+  regression_4007_dsa.8 OK
+o regression_4007_dsa.9 Generate DSA key 960 bits
+  regression_4007_dsa.9 OK
+o regression_4007_dsa.10 Generate DSA key 1024 bits
+  regression_4007_dsa.10 OK
+  regression_4007_dsa OK
+ 
+* regression_4007_ecc Test TEE Internal API Generate ECC key
+o regression_4007_ecc.1 Generate ECDSA-192
+  regression_4007_ecc.1 OK
+o regression_4007_ecc.2 Generate ECDH-192
+  regression_4007_ecc.2 OK
+  regression_4007_ecc OK
+ 
+* regression_4007_rsa Test TEE Internal API Generate RSA key
+o regression_4007_rsa.1 Generate RSA-256 key
+  regression_4007_rsa.1 OK
+  regression_4007_rsa OK
+ 
+* regression_4007_symmetric Test TEE Internal API Generate Symmetric key
+o regression_4007_symmetric.1 Generate AES key
+  regression_4007_symmetric.1 OK
+o regression_4007_symmetric.2 Generate DES key
+  regression_4007_symmetric.2 OK
+o regression_4007_symmetric.3 Generate DES3 key
+  regression_4007_symmetric.3 OK
+o regression_4007_symmetric.4 Generate HMAC-MD5 key
+  regression_4007_symmetric.4 OK
+o regression_4007_symmetric.5 Generate HMAC-SHA1 key
+  regression_4007_symmetric.5 OK
+o regression_4007_symmetric.6 Generate HMAC-SHA224 key
+  regression_4007_symmetric.6 OK
+o regression_4007_symmetric.7 Generate HMAC-SHA256 key
+  regression_4007_symmetric.7 OK
+o regression_4007_symmetric.8 Generate HMAC-SHA384 key
+  regression_4007_symmetric.8 OK
+o regression_4007_symmetric.9 Generate HMAC-SHA512 key
+  regression_4007_symmetric.9 OK
+o regression_4007_symmetric.10 Generate Generic secret key
+  regression_4007_symmetric.10 OK
+  regression_4007_symmetric OK
+ 
+* regression_4008 Test TEE Internal API Derive key
+o regression_4008.1 Derive DH key success
+  regression_4008.1 OK
+  regression_4008 OK
+ 
+* regression_4009 Test TEE Internal API Derive key ECDH
+o regression_4009.1 Derive ECDH key - algo = 0x80001042
+  regression_4009.1 OK
+o regression_4009.2 Derive ECDH key - algo = 0x80002042
+  regression_4009.2 OK
+o regression_4009.3 Derive ECDH key - algo = 0x80003042
+  regression_4009.3 OK
+o regression_4009.4 Derive ECDH key - algo = 0x80004042
+  regression_4009.4 OK
+o regression_4009.5 Derive ECDH key - algo = 0x80005042
+  regression_4009.5 OK
+  regression_4009 OK
+ 
+* regression_4010 Test TEE Internal API create transient object (negative)
+  regression_4010 OK
+ 
+* regression_4011 Test TEE Internal API Bleichenbacher attack (negative)
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+Iteration 7
+Iteration 8
+  regression_4011 OK
+ 
+* regression_4012 Test seeding RNG entropy
+  regression_4012 OK
+ 
+* regression_4013 Test generation of device unique TA keys
+  regression_4013 OK
+ 
+* regression_4014 Test SM2 KEP (key derivation)
+o regression_4014.1 Initiator side
+  regression_4014.1 OK
+o regression_4014.2 Responder side
+  regression_4014.2 OK
+  regression_4014 OK
+ 
+* regression_4101 Test TEE Internal API Arithmetical API - Bigint init
+o regression_4101.1 Normal allocation and initialization
+  regression_4101.1 OK
+o regression_4101.2 Zero allocation
+  regression_4101.2 OK
+o regression_4101.3 Too large
+  regression_4101.3 OK
+o regression_4101.4 Boundaries
+  regression_4101.4 OK
+  regression_4101 OK
+ 
+* regression_4102 Test TEE Internal API Arithmetical API - Octet string
+o regression_4102.1 "01020304"
+  regression_4102.1 OK
+o regression_4102.2 "0102030405"
+  regression_4102.2 OK
+o regression_4102.3 "11224455667788"
+  regression_4102.3 OK
+o regression_4102.4 "01020304"
+  regression_4102.4 OK
+  regression_4102 OK
+ 
+* regression_4103 Test TEE Internal API Arithmetical API - S32
+o regression_4103.1 1 (0x1)
+  regression_4103.1 OK
+o regression_4103.2 -1 (0xffffffff)
+  regression_4103.2 OK
+o regression_4103.3 123 (0x7b)
+  regression_4103.3 OK
+o regression_4103.4 -123 (0xffffff85)
+  regression_4103.4 OK
+o regression_4103.5 2147483647 (0x7fffffff)
+  regression_4103.5 OK
+o regression_4103.6 -2147483648 (0x80000000)
+  regression_4103.6 OK
+o regression_4103.7 -1 (0xffffffff)
+  regression_4103.7 OK
+o regression_4103.8 0 (0x0)
+  regression_4103.8 OK
+o regression_4103.9 "1FFFFFFFFF" (overflow)
+  regression_4103.9 OK
+o regression_4103.10 "-1FFFFFFFFF" (overflow)
+  regression_4103.10 OK
+  regression_4103 OK
+ 
+* regression_4104 Test TEE Internal API Arithmetical API - Compare
+o regression_4104.1 Compare bigints
+  regression_4104.1 OK
+o regression_4104.2 Compare S32
+  regression_4104.2 OK
+  regression_4104 OK
+ 
+* regression_4105 Test TEE Internal API Arithmetical API - Add, Sub
+  regression_4105 OK
+ 
+* regression_4106 Test TEE Internal API Arithmetical API - Neg
+  regression_4106 OK
+ 
+* regression_4107 Test TEE Internal API Arithmetical API - Mul
+  regression_4107 OK
+ 
+* regression_4108 Test TEE Internal API Arithmetical API - Div
+  regression_4108 OK
+ 
+* regression_4109 Test TEE Internal API Arithmetical API - Mod
+  regression_4109 OK
+ 
+* regression_4110 Test TEE Internal API Arithmetical API - Mod arith
+  regression_4110 OK
+ 
+* regression_4111 Test TEE Internal API Arithmetical API - Invmod
+  regression_4111 OK
+ 
+* regression_4112 Test TEE Internal API Arithmetical API - Is prime
+  regression_4112 OK
+ 
+* regression_4113 Test TEE Internal API Arithmetical API - shift right
+  regression_4113 OK
+ 
+* regression_4114 Test TEE Internal API Arithmetical API - GCD
+  regression_4114 OK
+ 
+* regression_5006 Tests for Global platform TEEC
+o regression_5006.1 CloseSession_null
+  regression_5006.1 OK
+o regression_5006.2 Allocate_In
+  regression_5006.2 OK
+o regression_5006.3 Allocate_out_of_memory
+  regression_5006.3 OK
+o regression_5006.4 OpenSession_error_notExistingTA
+  regression_5006.4 OK
+o regression_5006.5 Allocate_InOut
+  regression_5006.5 OK
+o regression_5006.6 Register_In
+  regression_5006.6 OK
+o regression_5006.7 Register_notZeroLength_Out
+  regression_5006.7 OK
+o regression_5006.8 Register_InOut
+  regression_5006.8 OK
+o regression_5006.9 Register_zeroLength_Out
+  regression_5006.9 OK
+o regression_5006.10 Allocate_Out
+  regression_5006.10 OK
+o regression_5006.11 FinalizeContext_null
+  regression_5006.11 OK
+o regression_5006.12 InitializeContext_NotExistingTEE
+  regression_5006.12 OK
+o regression_5006.13 AllocateThenRegister_SameMemory
+  regression_5006.13 OK
+o regression_5006.14 AllocateSameMemory_twice
+  regression_5006.14 OK
+o regression_5006.15 RegisterSameMemory_twice
+  regression_5006.15 OK
+o regression_5006.16 Allocate_sharedMemory_32k
+  regression_5006.16 OK
+o regression_5006.17 Register_sharedMemory_32k
+  regression_5006.17 OK
+  regression_5006 OK
+ 
+* regression_6001 Test TEE_CreatePersistentObject
+o regression_6001.1 Storage id: 00000001
+  regression_6001.1 OK
+o regression_6001.2 Storage id: 80000000
+  regression_6001.2 OK
+  regression_6001 OK
+ 
+* regression_6002 Test TEE_OpenPersistentObject
+o regression_6002.1 Storage id: 00000001
+  regression_6002.1 OK
+o regression_6002.2 Storage id: 80000000
+  regression_6002.2 OK
+  regression_6002 OK
+ 
+* regression_6003 Test TEE_ReadObjectData
+o regression_6003.1 Storage id: 00000001
+  regression_6003.1 OK
+o regression_6003.2 Storage id: 80000000
+  regression_6003.2 OK
+  regression_6003 OK
+ 
+* regression_6004 Test TEE_WriteObjectData
+o regression_6004.1 Storage id: 00000001
+  regression_6004.1 OK
+o regression_6004.2 Storage id: 80000000
+  regression_6004.2 OK
+  regression_6004 OK
+ 
+* regression_6005 Test TEE_SeekObjectData
+o regression_6005.1 Storage id: 00000001
+  regression_6005.1 OK
+o regression_6005.2 Storage id: 80000000
+  regression_6005.2 OK
+  regression_6005 OK
+ 
+* regression_6006 Test TEE_CloseAndDeletePersistentObject
+o regression_6006.1 Storage id: 00000001
+  regression_6006.1 OK
+o regression_6006.2 Storage id: 80000000
+  regression_6006.2 OK
+  regression_6006 OK
+ 
+* regression_6007 Test TEE_TruncateObjectData
+o regression_6007.1 Storage id: 00000001
+o regression_6007.1.1 Test truncate file length
+  regression_6007.1.1 OK
+o regression_6007.1.2 Test extend file length
+  regression_6007.1.2 OK
+o regression_6007.1.3 Test file hole
+  regression_6007.1.3 OK
+  regression_6007.1 OK
+o regression_6007.2 Storage id: 80000000
+o regression_6007.2.1 Test truncate file length
+  regression_6007.2.1 OK
+o regression_6007.2.2 Test extend file length
+  regression_6007.2.2 OK
+o regression_6007.2.3 Test file hole
+  regression_6007.2.3 OK
+  regression_6007.2 OK
+  regression_6007 OK
+ 
+* regression_6008 Test TEE_RenamePersistentObject
+o regression_6008.1 Storage id: 00000001
+  regression_6008.1 OK
+o regression_6008.2 Storage id: 80000000
+  regression_6008.2 OK
+  regression_6008 OK
+ 
+* regression_6009 Test TEE Internal API Persistent Object Enumeration Functions
+o regression_6009.1 Storage id: 00000001
+  regression_6009.1 OK
+o regression_6009.2 Storage id: 80000000
+  regression_6009.2 OK
+  regression_6009 OK
+ 
+* regression_6010 Test Storage
+o regression_6010.1 Storage id: 00000001
+o regression_6010.1.1 CreatePersistentObject AccessConflict
+  regression_6010.1.1 OK
+o regression_6010.1.2 RestrictObjectUsage Panic
+  regression_6010.1.2 OK
+o regression_6010.1.3 SeekObjectData BadHandle
+  regression_6010.1.3 OK
+o regression_6010.1.4 SeekObjectData NotPersist
+  regression_6010.1.4 OK
+o regression_6010.1.5 SeekWriteRead
+  regression_6010.1.5 OK
+o regression_6010.1.6 Rename Access Conflict
+  regression_6010.1.6 OK
+o regression_6010.1.7 Rename Access Conflict 2
+  regression_6010.1.7 OK
+o regression_6010.1.8 AllocPersistentObjectEnumerator + ResetPersistentObjectEnumerator
+  regression_6010.1.8 OK
+o regression_6010.1.9 StartPersistentObjectEnumerator ItemNotFound
+  regression_6010.1.9 OK
+o regression_6010.1.10 RenamePersistent ReadWrite
+  regression_6010.1.10 OK
+o regression_6010.1.11 Close Free Reset Null
+  regression_6010.1.11 OK
+  regression_6010.1 OK
+o regression_6010.2 Storage id: 80000000
+o regression_6010.2.1 CreatePersistentObject AccessConflict
+  regression_6010.2.1 OK
+o regression_6010.2.2 RestrictObjectUsage Panic
+  regression_6010.2.2 OK
+o regression_6010.2.3 SeekObjectData BadHandle
+  regression_6010.2.3 OK
+o regression_6010.2.4 SeekObjectData NotPersist
+  regression_6010.2.4 OK
+o regression_6010.2.5 SeekWriteRead
+  regression_6010.2.5 OK
+o regression_6010.2.6 Rename Access Conflict
+  regression_6010.2.6 OK
+o regression_6010.2.7 Rename Access Conflict 2
+  regression_6010.2.7 OK
+o regression_6010.2.8 AllocPersistentObjectEnumerator + ResetPersistentObjectEnumerator
+  regression_6010.2.8 OK
+o regression_6010.2.9 StartPersistentObjectEnumerator ItemNotFound
+  regression_6010.2.9 OK
+o regression_6010.2.10 RenamePersistent ReadWrite
+  regression_6010.2.10 OK
+o regression_6010.2.11 Close Free Reset Null
+  regression_6010.2.11 OK
+  regression_6010.2 OK
+  regression_6010 OK
+ 
+* regression_6012 Test TEE GP TTA DS init objects
+o regression_6012.1 Storage id: 00000001
+  regression_6012.1 OK
+o regression_6012.2 Storage id: 80000000
+  regression_6012.2 OK
+  regression_6012 OK
+ 
+* regression_6013 Key usage in Persistent objects
+o regression_6013.1 Storage id: 00000001
+  regression_6013.1 OK
+o regression_6013.2 Storage id: 80000000
+  regression_6013.2 OK
+  regression_6013 OK
+ 
+* regression_6014 Loop on Persistent objects
+o regression_6014.1 Storage id: 00000001
+  regression_6014.1 OK
+o regression_6014.2 Storage id: 80000000
+  regression_6014.2 OK
+  regression_6014 OK
+ 
+* regression_6015 Storage isolation
+o regression_6015.1 Storage id: 00000001
+  regression_6015.1 OK
+o regression_6015.2 Storage id: 80000000
+  regression_6015.2 OK
+  regression_6015 OK
+ 
+* regression_6016 Storage concurency
+o regression_6016.1 Storage id: 00000001
+    threads: 4, loops: 8
+  regression_6016.1 OK
+o regression_6016.2 Storage id: 80000000
+    threads: 4, loops: 8
+  regression_6016.2 OK
+  regression_6016 OK
+ 
+* regression_6017 Test Persistent objects info
+o regression_6017.1 Storage id: 00000001
+  regression_6017.1 OK
+o regression_6017.2 Storage id: 80000000
+  regression_6017.2 OK
+  regression_6017 OK
+ 
+* regression_6018 Large object
+o regression_6018.1 Storage id: 00000001
+writing 0
+writing 1
+writing 2
+writing 3
+writing 4
+writing 5
+writing 6
+writing 7
+writing 8
+writing 9
+writing 10
+writing 11
+writing 12
+writing 13
+writing 14
+writing 15
+writing 16
+writing 17
+writing 18
+writing 19
+reading 0
+reading 1
+reading 2
+reading 3
+reading 4
+reading 5
+reading 6
+reading 7
+reading 8
+reading 9
+reading 10
+reading 11
+reading 12
+reading 13
+reading 14
+reading 15
+reading 16
+reading 17
+reading 18
+reading 19
+  regression_6018.1 OK
+o regression_6018.2 Storage id: 80000000
+writing 0
+writing 1
+writing 2
+writing 3
+writing 4
+writing 5
+writing 6
+writing 7
+writing 8
+writing 9
+writing 10
+writing 11
+writing 12
+writing 13
+writing 14
+writing 15
+writing 16
+writing 17
+writing 18
+writing 19
+reading 0
+reading 1
+reading 2
+reading 3
+reading 4
+reading 5
+reading 6
+reading 7
+reading 8
+reading 9
+reading 10
+reading 11
+reading 12
+reading 13
+reading 14
+reading 15
+reading 16
+reading 17
+reading 18
+reading 19
+  regression_6018.2 OK
+  regression_6018 OK
+ 
+* regression_6019 Storage independence
+o regression_6019.1 Storage id: 00000001
+  regression_6019.1 OK
+o regression_6019.2 Storage id: 80000000
+  regression_6019.2 OK
+  regression_6019 OK
+ 
+* regression_6020 Object IDs in SHM (negative)
+o regression_6020.1 Storage id: 00000001
+  regression_6020.1 OK
+o regression_6020.2 Storage id: 80000000
+  regression_6020.2 OK
+  regression_6020 OK
+ 
+* regression_8001 Test TEE Internal API key derivation extensions
+o regression_8001.1 HKDF RFC 5869 A.1 (SHA-256)
+  regression_8001.1 OK
+o regression_8001.2 HKDF RFC 5869 A.2 (SHA-256)
+  regression_8001.2 OK
+o regression_8001.3 HKDF RFC 5869 A.3 (SHA-256) [1]
+  regression_8001.3 OK
+o regression_8001.4 HKDF RFC 5869 A.3 (SHA-256) [2]
+  regression_8001.4 OK
+o regression_8001.5 HKDF RFC 5869 A.4 (SHA-1)
+  regression_8001.5 OK
+o regression_8001.6 HKDF RFC 5869 A.5 (SHA-1)
+  regression_8001.6 OK
+o regression_8001.7 HKDF RFC 5869 A.6 (SHA-1) [1]
+  regression_8001.7 OK
+o regression_8001.8 HKDF RFC 5869 A.6 (SHA-1) [2]
+  regression_8001.8 OK
+o regression_8001.9 HKDF RFC 5869 A.7 (SHA-1) [1]
+  regression_8001.9 OK
+o regression_8001.10 HKDF RFC 5869 A.7 (SHA-1) [2]
+  regression_8001.10 OK
+o regression_8001.11 Concat KDF JWA-37 C (SHA-256)
+  regression_8001.11 OK
+o regression_8001.12 PBKDF2 RFC 6070 1 (HMAC-SHA1)
+  regression_8001.12 OK
+o regression_8001.13 PBKDF2 RFC 6070 2 (HMAC-SHA1)
+  regression_8001.13 OK
+o regression_8001.14 PBKDF2 RFC 6070 3 (HMAC-SHA1)
+  regression_8001.14 OK
+o regression_8001.15 PBKDF2 RFC 6070 5 (HMAC-SHA1)
+  regression_8001.15 OK
+o regression_8001.16 PBKDF2 RFC 6070 6 (HMAC-SHA1)
+  regression_8001.16 OK
+  regression_8001 OK
+ 
+* regression_8002 Secure Storage Key Manager API Self Test
+Ignore test due to TA does not exist
+  regression_8002 OK
+ 
+* regression_8101 TA mbedTLS self tests
+  regression_8101 OK
+ 
+* regression_8102 TA mbedTLS test cert chain
+  regression_8102 OK
+ 
+* regression_8103 TA mbedTLS process certificate request
+  regression_8103 OK
++-----------------------------------------------------
+Result of testsuite regression:
+regression_1001 OK
+regression_1002 OK
+regression_1003 OK
+regression_1004 OK
+regression_1005 OK
+regression_1006 OK
+regression_1007 OK
+regression_1008 OK
+regression_1009 OK
+regression_1010 OK
+regression_1011 OK
+regression_1012 OK
+regression_1013 OK
+regression_1015 OK
+regression_1016 OK
+regression_1017 OK
+regression_1018 OK
+regression_1019 OK
+regression_1020 OK
+regression_1021 OK
+regression_1022 OK
+regression_1023 OK
+regression_1025 OK
+regression_1026 OK
+regression_1027 OK
+regression_1028 OK
+regression_1029 OK
+regression_1030 OK
+regression_1031 OK
+regression_1032 OK
+regression_1033 OK
+regression_1034 OK
+regression_2001 OK
+regression_2002 OK
+regression_2003 OK
+regression_2004 OK
+regression_4001 OK
+regression_4002 OK
+regression_4003 OK
+regression_4004 OK
+regression_4005 OK
+regression_4006 OK
+regression_4007_dh OK
+regression_4007_dsa OK
+regression_4007_ecc OK
+regression_4007_rsa OK
+regression_4007_symmetric OK
+regression_4008 OK
+regression_4009 OK
+regression_4010 OK
+regression_4011 OK
+regression_4012 OK
+regression_4013 OK
+regression_4014 OK
+regression_4101 OK
+regression_4102 OK
+regression_4103 OK
+regression_4104 OK
+regression_4105 OK
+regression_4106 OK
+regression_4107 OK
+regression_4108 OK
+regression_4109 OK
+regression_4110 OK
+regression_4111 OK
+regression_4112 OK
+regression_4113 OK
+regression_4114 OK
+regression_5006 OK
+regression_6001 OK
+regression_6002 OK
+regression_6003 OK
+regression_6004 OK
+regression_6005 OK
+regression_6006 OK
+regression_6007 OK
+regression_6008 OK
+regression_6009 OK
+regression_6010 OK
+regression_6012 OK
+regression_6013 OK
+regression_6014 OK
+regression_6015 OK
+regression_6016 OK
+regression_6017 OK
+regression_6018 OK
+regression_6019 OK
+regression_6020 OK
+regression_8001 OK
+regression_8002 OK
+regression_8101 OK
+regression_8102 OK
+regression_8103 OK
++-----------------------------------------------------
+26181 subtests of which 0 failed
+93 test cases of which 0 failed
+0 test cases were skipped
+TEE test application done!
