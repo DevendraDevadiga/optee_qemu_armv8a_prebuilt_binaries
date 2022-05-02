@@ -3,6 +3,14 @@ Prebuilt OP-TEE 3.15 Binaries for QEMUv8 and Run x-test
 
 # How to run OP-TEE on QEMU and run the x-test.
 
+Refer this article for more information:
+https://blooggspott.blogspot.com/2022/04/op-tee-3.html
+
+Also provided video for how to build and run the OP-TEE on QEMU:
+
+https://youtube.com/playlist?list=PLrwOamjP8JAKZ3hIdH1z3hxvYSq7XoI8d
+
+
 Download the binaries provided in this repository.
 
 ```ruby
